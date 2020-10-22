@@ -101,6 +101,7 @@ nav .dropdown-toggle:focus {
   height: 20px;
   position: relative;
   opacity: 0;
+  cursor: pointer;
   transform: translateX(6px);
   transition: all 0.3s ease 0.35s;
 }
@@ -130,21 +131,27 @@ nav .dropdown-toggle:focus {
   margin: auto;
   z-index: 9;
 }
+.play-btn:not(:hover) {
+  background: black;
+}
 
 .play-btn {
   position: relative;
   width: 40px;
   height: 40px;
-  background-color: #4caf7d;
+  border: 2px solid white;
   border-radius: 50%;
   margin-right: 0.25rem;
+  cursor: pointer;
   transform: translateX(-200px);
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0.35, 0.27, 0.22, 1) 0.4s;
+  transition: transform 0.3s cubic-bezier(0.35, 0.27, 0.22, 1) 0.4s,
+    opacity 0.3s cubic-bezier(0.35, 0.27, 0.22, 1) 0.4s;
 }
 
 .play-btn:hover {
   animation: gradientSlide 4s ease infinite;
+  border: 0px solid transparent;
 }
 
 .play-btn::before {
@@ -153,7 +160,7 @@ nav .dropdown-toggle:focus {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 3px;
   width: 0;
   height: 0;
   margin: auto;
