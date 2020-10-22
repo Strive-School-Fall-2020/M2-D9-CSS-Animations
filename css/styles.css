@@ -77,20 +77,21 @@ nav .dropdown-toggle:focus {
 
 .infos-container {
   position: absolute;
-  /* top: 0; */
   right: 0;
-  /* bottom: 0; */
   left: 0;
   color: white;
-  transform: translateY(-2.5rem);
+  transform: translateY(-3.3rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 10;
 }
 
 .infos-content {
   padding: 1rem 1.5rem;
-  padding-top: 48px;
+  padding-top: 38px;
   background: linear-gradient(rgba(27, 37, 48, 0), #1b2530 48px);
-
+  overflow: hidden;
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
@@ -99,6 +100,9 @@ nav .dropdown-toggle:focus {
   width: 20px;
   height: 20px;
   position: relative;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: all 0.3s ease 0.35s;
 }
 
 .infos-content .plus::before {
@@ -127,6 +131,60 @@ nav .dropdown-toggle:focus {
   z-index: 9;
 }
 
+.play-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #4caf7d;
+  border-radius: 50%;
+  margin-right: 0.25rem;
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.35, 0.27, 0.22, 1) 0.4s;
+}
+
+.play-btn:hover {
+  animation: gradientSlide 4s ease infinite;
+}
+
+.play-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin: auto;
+  border-style: solid;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.gradient {
+  background: linear-gradient(
+    270deg,
+    rgb(76, 175, 125) 0%,
+    rgb(165, 230, 13) 100%
+  );
+  background-size: 400% 400%;
+}
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .infos-content p {
   font-size: 0.8rem;
   margin-bottom: 0;
@@ -140,6 +198,22 @@ nav .dropdown-toggle:focus {
   margin-top: 1rem;
   font-size: 0.8rem;
   color: #8197a4;
+}
+
+.strive-card:hover .infos-container {
+  opacity: 1;
+  transform: translateY(-3rem);
+  pointer-events: initial;
+}
+
+.strive-card:hover .plus {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.strive-card:hover .play-btn {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 footer {
@@ -165,4 +239,34 @@ footer ul li {
 
 footer ul:last-of-type {
   color: rgba(255, 255, 255, 0.45);
+}
+
+#toaster {
+  position: fixed;
+  right: 20px;
+  top: 97px;
+  padding: 1rem 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  opacity: 0;
+  animation: gradientSlide 4s ease infinite;
+  transition: opacity 0.3s ease-in;
+  z-index: 999;
+}
+
+#toaster.show {
+  opacity: 1;
+}
+
+#toaster::before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 20px;
+  height: 20px;
+  border: 10px solid;
+  border-color: transparent transparent transparent #28a745;
 }
