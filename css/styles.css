@@ -2,6 +2,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  font-weight: 400;
   background: #0f171e;
 }
 
@@ -74,14 +75,71 @@ nav .dropdown-toggle:focus {
   border-bottom: 1px solid white;
 }
 
-.little-element {
-  color: white;
-  background: red;
+.infos-container {
   position: absolute;
-  bottom: 10px;
-  right: 16px;
-  height: 33px;
-  padding: 0.6rem;
+  /* top: 0; */
+  right: 0;
+  /* bottom: 0; */
+  left: 0;
+  color: white;
+  transform: translateY(-2.5rem);
+  z-index: 10;
+}
+
+.infos-content {
+  padding: 1rem 1.5rem;
+  padding-top: 48px;
+  background: linear-gradient(rgba(27, 37, 48, 0), #1b2530 48px);
+
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.infos-content .plus {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.infos-content .plus::before {
+  content: " ";
+  position: absolute;
+  background-color: #fff;
+  width: 2px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9;
+}
+
+.infos-content .plus::after {
+  content: " ";
+  position: absolute;
+  background-color: #fff;
+  height: 2px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9;
+}
+
+.infos-content p {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.infos-content .movie-footer {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #8197a4;
 }
 
 footer {
