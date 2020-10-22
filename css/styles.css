@@ -185,6 +185,11 @@ nav .dropdown-toggle:focus {
   }
 }
 
+.infos-content > div h6:first-of-type {
+  transform: translateX(-41px);
+  transition: transform 0.3s cubic-bezier(0.75, 0.32, 0.33, 0.99) 0.35s;
+}
+
 .infos-content p {
   font-size: 0.8rem;
   margin-bottom: 0;
@@ -192,12 +197,17 @@ nav .dropdown-toggle:focus {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  transition: all 0.3s ease 0.2s;
 }
 
 .infos-content .movie-footer {
   margin-top: 1rem;
   font-size: 0.8rem;
   color: #8197a4;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s;
 }
 
 .strive-card:hover .infos-container {
@@ -206,12 +216,16 @@ nav .dropdown-toggle:focus {
   pointer-events: initial;
 }
 
-.strive-card:hover .plus {
+.strive-card:hover .infos-content p {
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateY(0);
 }
-
-.strive-card:hover .play-btn {
+.strive-card:hover .infos-content .movie-footer {
+  opacity: 1;
+}
+.strive-card:hover .play-btn,
+.strive-card:hover .plus,
+.strive-card:hover .infos-content h6 {
   opacity: 1;
   transform: translateX(0);
 }
